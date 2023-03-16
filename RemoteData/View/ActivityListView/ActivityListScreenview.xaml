@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteData.View.ActivityListView.ActivityListScreenview"
+             BackgroundColor="Gray"
+             xmlns:ViewModel="clr-namespace:RemoteData.ViewModel.ActivityList"
+             Title="ActivityListScreenview">
+
+    <ContentPage.BindingContext>
+        <ViewModel:ActivityListViewModel></ViewModel:ActivityListViewModel>
+    </ContentPage.BindingContext>
+    
+
+    <NavigationPage.TitleView>
+        <Label Text="Your Activity"
+               TextColor="White"
+               VerticalOptions="Center"
+               />
+    </NavigationPage.TitleView>
+
+
+    <ScrollView>
+        <StackLayout Margin="10">
+            <CollectionView ItemsSource="{Binding ActivityDetails}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Favorite"
+                                                   BackgroundColor="Green" />
+                                    <SwipeItem Text="Delete"
+                                                   BackgroundColor="Red"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <Frame>
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <VerticalStackLayout Grid.Column="0"
+                                         BackgroundColor="{Binding Complete}"                                         >
+
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Column="1">
+                                        <Label Text="{Binding Name}"
+                                                   FontAttributes="Bold"/>
+                                        <HorizontalStackLayout>
+                                            <Image Source="clock"
+                                                       HeightRequest="10"
+                                                       WidthRequest="10"/>
+                                            <Label Text="{Binding DateTiem}"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+            
+    </ScrollView>
+</ContentPage>
