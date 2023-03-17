@@ -8,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace RemoteData.HTTPModel.ActivityList
 {
-    public class HttpActivityListModel
-    {
-        [JsonProperty("Activities")]
-        public List<ActivityDetails> ActivityNewDetails { get; set; }   
-    }
+   
 
     public class ActivityDetails
     {

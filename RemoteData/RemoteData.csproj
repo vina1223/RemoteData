@@ -49,7 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\Add.png" />
 	  <None Remove="Resources\Images\clock.png" />
+	  <None Remove="Resources\Images\delete.png" />
+	  <None Remove="Resources\Images\edit.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -62,6 +65,12 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="View\ActivityListView\ActivityListScreenview.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ActivityListView\AddActivityListView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ActivityListView\UpdateActivityListView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Recipe.xaml">

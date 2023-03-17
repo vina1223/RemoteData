@@ -5,61 +5,68 @@ using RemoteData.HTTPModel.ActivityList;
 using RemoteData.Result.Recipe;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RemoteData.Model.ActivityList
 {
-    public class ActivityListModel
+    public class AddActivityListModel
     {
-        private ActivityListEndpoint _ActivityEndPoint;
-        public List<ActivityDetails> DetailsActivity { get; set; }
-        public ActivityListModel()
+        private AddActivityListEndPoint _ActivtiyEndPoint;
+        public string Name { get; set; }
+        public string DataTime { get; set; }
+        public bool IsComplete { get; set; }
+
+        public AddActivityListModel()
         {
-            _ActivityEndPoint = new ActivityListEndpoint(); ;
+            _ActivtiyEndPoint = new AddActivityListEndPoint();
         }
 
-        public async Task<MyResult> GetActivityDetailsAsync()
+        public async Task<MyResult> AddActivityDetailsAsync()
         {
             if (CrossConnectivity.Current.IsConnected)
             {
-                var responce = await _ActivityEndPoint.ExecuteAsync();
+                var requestModel = new ActivityRequestModel()
+                {
+                    Name= Name,
+                    DataTime= DataTime,
+                    IsComplete= IsComplete,
+                };
+                _ActivtiyEndPoint.AddActivityRequestModel = requestModel;
+                var responce = await _ActivtiyEndPoint.ExecuteAsync();
+
                 if (responce.IsSuccessStatusCode)
                 {
                     var data = await responce.Content.ReadAsStringAsync();
-                    var activity = JsonConvert.DeserializeObject<List<ActivityDetails>>(data);
-                    DetailsActivity = activity;
+                    var employee = JsonConvert.DeserializeObject<AddHttpActivityModel>(data);
                     return new MyResult()
                     {
                         IsSucess = true,
+                        Message= "Something went wrong"
                     };
+
                 }
                 else
                 {
                     return new MyResult()
                     {
                         IsSucess = false,
-                        Message = "Something Went wrong"
+                        Message = "Something went wrong"
                     };
-
                 }
+              
             }
             else
             {
                 return new MyResult()
                 {
-
                     IsSucess = false,
                     IsInternetError = true,
-                    Message = "No Internet Connection",
+                    Message = "No Internet Connection"
                 };
             }
-            
         }
+
     }
-
-
-    
 }

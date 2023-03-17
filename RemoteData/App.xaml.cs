@@ -11,9 +11,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(new ActivityListScreenview())
-		{
-			BarBackgroundColor = Colors.Cyan,
-		};
+		MainPage =new NavigationPage(new ActivityListScreenview());
 	}
 }

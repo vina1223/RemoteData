@@ -1,3 +1,4 @@
+using RemoteData.Model.ActivityList;
 using RemoteData.ViewModel.ActivityList;
 
 namespace RemoteData.View.ActivityListView;
@@ -10,10 +11,16 @@ public partial class ActivityListScreenview : ContentPage
 		InitializeComponent();
 		GetInstance();
 		_=GetActivityList();
+        _activityListViewModel.Nextpage += _activityListViewModel_Nextpage;
 
 	}
 
-	private void GetInstance()
+    private async void _activityListViewModel_Nextpage(object sender, EventArgs e)
+    {
+		await Navigation.PushAsync(new AddActivityListView());
+    }
+
+    private void GetInstance()
 	{
 		_activityListViewModel = (ActivityListViewModel)BindingContext;
 	}

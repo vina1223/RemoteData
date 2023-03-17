@@ -4,7 +4,7 @@
              x:Class="RemoteData.View.ActivityListView.ActivityListScreenview"
              BackgroundColor="Gray"
              xmlns:ViewModel="clr-namespace:RemoteData.ViewModel.ActivityList"
-             Title="ActivityListScreenview">
+             Title="Your Activity">
 
     <ContentPage.BindingContext>
         <ViewModel:ActivityListViewModel></ViewModel:ActivityListViewModel>
@@ -19,45 +19,75 @@
     </NavigationPage.TitleView>
 
 
-    <ScrollView>
-        <StackLayout Margin="10">
-            <CollectionView ItemsSource="{Binding ActivityDetails}">
-                <CollectionView.ItemTemplate>
+    <StackLayout Margin="10">
+        <ActivityIndicator IsRunning="{Binding Activity}"
+                           Color="Blue"
+                           IsVisible="{Binding Activity}"
+                           />
+        <CollectionView ItemsSource="{Binding ActivityDetails}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical"
+                             Span=" 1"
+                             VerticalItemSpacing="10"
+                             >
+            </GridItemsLayout>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <SwipeView>
-                            <SwipeView.RightItems>
-                                <SwipeItems>
-                                    <SwipeItem Text="Favorite"
-                                                   BackgroundColor="Green" />
-                                    <SwipeItem Text="Delete"
+
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                               IconImageSource="delete"
                                                    BackgroundColor="Red"/>
-                                </SwipeItems>
-                            </SwipeView.RightItems>
+                                <SwipeItem Text="Edit"
+                                                   IconImageSource="edit"
+                                                   BackgroundColor="Green" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        
+                            <StackLayout >
+                                <Frame Padding="0"
+                                       >
+                                    <Grid ColumnDefinitions="9,*">
+                                        <VerticalStackLayout Grid.Column="0"
+                                         BackgroundColor="Red"  >
 
-                            <Frame>
-                                <Grid ColumnDefinitions="Auto,*">
-                                    <VerticalStackLayout Grid.Column="0"
-                                         BackgroundColor="{Binding Complete}"                                         >
-
-                                    </VerticalStackLayout>
-                                    <VerticalStackLayout Grid.Column="1">
-                                        <Label Text="{Binding Name}"
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="1"
+                                                         Padding="13"
+                                                         Spacing="10"
+                                                         >
+                                            <Label Text="{Binding Name}"
                                                    FontAttributes="Bold"/>
-                                        <HorizontalStackLayout>
-                                            <Image Source="clock"
+                                            <HorizontalStackLayout>
+                                                <Image Source="clock"
                                                        HeightRequest="10"
                                                        WidthRequest="10"/>
-                                            <Label Text="{Binding DateTiem}"/>
-                                        </HorizontalStackLayout>
-                                    </VerticalStackLayout>
-                                </Grid>
-                            </Frame>
-                        </SwipeView>
-                    </DataTemplate>
+                                                <Label Text="{Binding DateTiem}"/>
+                                            </HorizontalStackLayout>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        
+                    </SwipeView>
+                </DataTemplate>
 
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
-            
-    </ScrollView>
+    <ImageButton BackgroundColor="Transparent"
+                   HorizontalOptions="End"
+                   VerticalOptions="EndAndExpand"
+                   Padding="0"
+                   HeightRequest="60"
+                   WidthRequest="60"
+                   Source="add"
+                   Command="{Binding AddButton}" />
+        
+
+    </StackLayout>
+    
+
 </ContentPage>
