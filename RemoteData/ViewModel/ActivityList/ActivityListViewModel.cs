@@ -49,13 +49,18 @@ namespace RemoteData.ViewModel.ActivityList
         }
 
         public ICommand AddButton { get; set; }
+        public ICommand EditButton { get; set; }
 
         public event EventHandler Nextpage;
+        public event EventHandler UpdatePage;
         public ActivityListViewModel()
         {
             _ActivityModel = new ActivityListModel();
             AddButton = new Command(Add);
+            EditButton = new Command(Update);
             BackgroundColor();
+            _deleteActivityModel = new DeleteActivityModel();
+            DeleteCommand = new Command(() => { _ = DeleteDetailsAsync(); });
         }
 
         public void Add()
@@ -63,13 +68,45 @@ namespace RemoteData.ViewModel.ActivityList
             Nextpage?.Invoke(this, new EventArgs());
         }
 
-
+        public  void Update()
+        {
+            UpdatePage?.Invoke(this, new EventArgs());
+        }
         public void BackgroundColor()
         {
             
            
 
         }
+
+
+        public event EventHandler<MyResult> DeleteEventHandler;
+
+        public DeleteActivityModel _deleteActivityModel;
+
+        private int _id;
+        public int Id
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+                OnPropertyChnaged();
+            }
+        }
+
+        public ICommand DeleteCommand { get; private set; }
+
+       
+
+        public async Task DeleteDetailsAsync()
+        {
+            _deleteActivityModel.Id = _id;
+            var result = await _deleteActivityModel.DeleteActivityDetailAsync();
+            DeleteEventHandler?.Invoke(this, result);
+        }
+
+
 
         public async Task GetActivityListAsync()
         {

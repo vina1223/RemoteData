@@ -9,13 +9,17 @@ using System.Threading.Tasks;
 
 namespace RemoteData.EndPoint.AvitvityList
 {
-    public class AddActivityListEndPoint
+    public class UpdateActivityListEndPoint
     {
-        public ActivityRequestModel AddActivityRequestModel { get; set; }
+        public int ID { get; set; }
+        public ActivityRequestModel UpdateActivityRequestModel { get; set; }
+
         public async Task<HttpResponseMessage> ExecuteAsync()
         {
-            return await 
-                RestService.For<IAddActivityListApi>("https://fakerestapi.azurewebsites.net/api/v1/").AddActivity(AddActivityRequestModel);
+            return await
+                RestService.For<UpdateActivityListApi>("https://fakerestapi.azurewebsites.net/api/v1/").UpdateActivity(UpdateActivityRequestModel, ID);
         }
+
+
     }
 }

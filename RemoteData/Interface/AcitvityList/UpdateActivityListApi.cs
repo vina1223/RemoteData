@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace RemoteData.Interface.AcitvityList
 {
-    public interface IAddActivityListApi
+    public interface UpdateActivityListApi
     {
-        [Post("/Activities")]
-        Task<HttpResponseMessage> AddActivity([Body] ActivityRequestModel model);
-
+        [Put ("/Activities/{id}")]
+        Task<HttpResponseMessage> UpdateActivity([Body] ActivityRequestModel model , int id);
     }
 }

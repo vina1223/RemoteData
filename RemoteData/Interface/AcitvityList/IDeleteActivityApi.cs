@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace RemoteData.Interface.AcitvityList
 {
-    public interface ActivityListApi
+    public interface IDeleteActivityApi
     {
-        [Get("/Activities")]
-        Task<HttpResponseMessage> GetActivityList();
-
-        
+        [Delete ("/delete/{id}")]
+        Task<HttpResponseMessage> DeleteActivity(int id);
     }
 }

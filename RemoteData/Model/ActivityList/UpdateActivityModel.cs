@@ -11,52 +11,53 @@ using System.Threading.Tasks;
 
 namespace RemoteData.Model.ActivityList
 {
-    public class AddActivityListModel
+    public class UpdateActivityModel
     {
-        private AddActivityListEndPoint _ActivtiyEndPoint;
+        private UpdateActivityListEndPoint _UpdateEndPoint;
+
         public string Name { get; set; }
-        public string DataTime { get; set; }
+        public string DateTime { get; set; }
         public bool IsComplete { get; set; }
 
-        public AddActivityListModel()
+        public UpdateActivityModel() 
         {
-            _ActivtiyEndPoint = new AddActivityListEndPoint();
+            _UpdateEndPoint= new UpdateActivityListEndPoint();
         }
 
-        public async Task<MyResult> AddActivityDetailsAsync()
+        public async Task<MyResult> UpdateActivityDetailsAsync()
         {
-            if (CrossConnectivity.Current.IsConnected)
+            if(CrossConnectivity.Current.IsConnected)
             {
-                var requestModel = new ActivityRequestModel()
+                var requestModel = new ActivityRequestModel() 
                 {
-                    Name= Name,
-                    DataTime= DataTime,
+                    Name = Name,
+                    DataTime=DateTime,
                     IsComplete= IsComplete,
                 };
-                _ActivtiyEndPoint.AddActivityRequestModel = requestModel;
-                var myresponce = await _ActivtiyEndPoint.ExecuteAsync();
 
-                if (myresponce.IsSuccessStatusCode)
+                _UpdateEndPoint.UpdateActivityRequestModel = requestModel;
+                var responce = await _UpdateEndPoint.ExecuteAsync();
+
+                if (responce.IsSuccessStatusCode)
                 {
-                    var data = await myresponce.Content.ReadAsStringAsync();
-                    var employee = JsonConvert.DeserializeObject<AddHttpActivityModel>(data);
+                    var data = await responce.Content.ReadAsStringAsync(); ;
+                    var activity = JsonConvert.DeserializeObject<AddHttpActivityModel>(data);
 
                     return new MyResult()
                     {
                         IsSucess = true,
-                        Message = "Activity Added Successfully",
+                        Message = "Activity UpDated Successfully",
                     };
-
                 }
                 else
                 {
                     return new MyResult()
                     {
                         IsSucess = false,
-                        Message = "Something went wrong"
+                        Message = "Somthing Went Wrong",
                     };
                 }
-              
+
             }
             else
             {
@@ -64,7 +65,7 @@ namespace RemoteData.Model.ActivityList
                 {
                     IsSucess = false,
                     IsInternetError = true,
-                    Message = "No Internet Connection"
+                    Message = "No Interne Connection"
                 };
             }
         }
