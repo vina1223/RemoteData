@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteData.View.WhatsappTabbedPage.WhatsAppTabPage"
+            xmlns:page="clr-namespace:RemoteData.View.WhatsappTabbedPage"
+            BarBackgroundColor="#075E55"
+            SelectedTabColor="White"
+            UnselectedTabColor="#93BDB8"
+            NavigationPage.HasNavigationBar="True"
+            Title="WhatsApp">
+
+    <NavigationPage.TitleView>
+
+        <Label Text="WhatsApp"
+               TextColor="White"
+               FontSize="20"
+               FontAttributes="Bold"
+               VerticalOptions="Center"
+               />
+    </NavigationPage.TitleView>
+    
+    <page:MainPage
+        Title="Calls"
+       />
+    <page:NewPage
+        Title="Chat"
+        />
+    <page:ContactPage
+        Title="Contact"
+        />
+
+</TabbedPage>

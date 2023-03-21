@@ -14,7 +14,7 @@ namespace RemoteData.EndPoint.AvitvityList
         public async Task<HttpResponseMessage> ExecuteAsync()
         {
             return await
-                RestService.For<IDeleteActivityApi>(" https://fakerestapi.azurewebsites.net/api/v1/Activities{id}").DeleteActivity(ID);
+                RestService.For<IDeleteActivityApi>("https://fakerestapi.azurewebsites.net/api/v1/").DeleteActivity(ID);
         }
     }
 }

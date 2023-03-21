@@ -14,6 +14,8 @@ namespace RemoteData.ViewModel.ActivityList
         public event EventHandler<MyResult> getEventHandler;
         private ObservableCollection<ActivityDetails> _Activitydetails;
         private ActivityListModel _ActivityModel;
+        private ActivityDetails activity;
+      
 
         public ObservableCollection<ActivityDetails> ActivityDetails
         {
@@ -57,10 +59,9 @@ namespace RemoteData.ViewModel.ActivityList
         {
             _ActivityModel = new ActivityListModel();
             AddButton = new Command(Add);
-            EditButton = new Command(Update);
-            BackgroundColor();
+            EditButton = new Command(Update);           
             _deleteActivityModel = new DeleteActivityModel();
-            DeleteCommand = new Command(() => { _ = DeleteDetailsAsync(); });
+            DeleteCommand = new Command(() => { _ = DeleteDetailsAsync(); });            
         }
 
         public void Add()
@@ -72,11 +73,17 @@ namespace RemoteData.ViewModel.ActivityList
         {
             UpdatePage?.Invoke(this, new EventArgs());
         }
-        public void BackgroundColor()
+       
+        public void BackgroundColorChange()
         {
-            
-           
-
+            if (activity.Complete == true)
+            {
+                ChangeColor = Colors.Green;
+            }
+            else
+            {
+                ChangeColor = Colors.Red;
+            }
         }
 
 
@@ -87,7 +94,7 @@ namespace RemoteData.ViewModel.ActivityList
         private int _id;
         public int Id
         {
-            get { return _id; }
+            get => _id; 
             set
             {
                 _id = value;
@@ -97,11 +104,9 @@ namespace RemoteData.ViewModel.ActivityList
 
         public ICommand DeleteCommand { get; private set; }
 
-       
-
         public async Task DeleteDetailsAsync()
         {
-            _deleteActivityModel.Id = _id;
+           _deleteActivityModel.Id = _id;
             var result = await _deleteActivityModel.DeleteActivityDetailAsync();
             DeleteEventHandler?.Invoke(this, result);
         }

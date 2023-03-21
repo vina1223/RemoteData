@@ -8,8 +8,6 @@ namespace RemoteData.View.ActivityListView;
 public partial class ActivityListScreenview : ContentPage
 {
     private ActivityListViewModel _activityListViewModel;
-    private UpdateActivityViewModel _UpdateActivityViewModel;
-    private DeleteActivityListViewModel _deleteActivityListViewModel;
     public ActivityListScreenview()
     {
         InitializeComponent();

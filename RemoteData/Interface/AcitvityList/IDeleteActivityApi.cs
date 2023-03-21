@@ -9,7 +9,7 @@ namespace RemoteData.Interface.AcitvityList
 {
     public interface IDeleteActivityApi
     {
-        [Delete ("/delete/{id}")]
+        [Delete("/Activities/{id}")]
         Task<HttpResponseMessage> DeleteActivity(int id);
     }
 }

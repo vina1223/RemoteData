@@ -1,5 +1,6 @@
 ﻿using RemoteData.View;
 using RemoteData.View.ActivityListView;
+using RemoteData.View.WhatsappTabbedPage;
 using RemoteData.ViewModel.Recipe;
 using System.Xml;
 
@@ -11,6 +12,11 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage =new NavigationPage(new ActivityListScreenview());
+		MainPage = new NavigationPage(new WhatsAppTabPage()) 
+		{
+			BackgroundColor = Color.FromArgb("#075E55")
+		};
+		
+		
 	}
 }

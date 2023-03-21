@@ -1,14 +1,8 @@
-﻿using CommunityToolkit.Maui.Converters;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Plugin.Connectivity;
 using RemoteData.EndPoint.AvitvityList;
 using RemoteData.HTTPModel.ActivityList;
 using RemoteData.Result.Recipe;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RemoteData.Model.ActivityList
 {
@@ -32,7 +26,7 @@ namespace RemoteData.Model.ActivityList
                 if (responce.IsSuccessStatusCode)
                 {
                     var data = await responce.Content.ReadAsStringAsync();
-                    var mydata = JsonConvert.DeserializeObject<AddHttpActivityModel>(data);
+                    var mydata = JsonConvert.DeserializeObject<DeleteActivityResponceModel>(data);
                     return new MyResult()
                     {
                         IsSucess = true,

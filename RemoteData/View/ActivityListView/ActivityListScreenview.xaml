@@ -20,15 +20,16 @@
     </NavigationPage.TitleView>
 
 
-    <StackLayout Margin="10">
-        <ActivityIndicator IsRunning="{Binding Activity}"
+    <Grid Margin="10">
+
+            <ActivityIndicator IsRunning="{Binding Activity}"
                            Color="Blue"
                            IsVisible="{Binding Activity}"
                            />
+
+
         <CollectionView ItemsSource="{Binding ActivityDetails}"
-                        x:Name="CollectionView"
-                        
-                        >
+                        x:Name="CollectionView">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
                              Span=" 1"
@@ -47,7 +48,6 @@
                                            BackgroundColor="Red"
                                            CommandParameter="{Binding}"
                                            Command="{Binding Source={x:Reference CollectionView}, Path=BindingContext.DeleteCommand}"
-                                        
                                            />
                                 <SwipeItem Text="Edit"
                                            IconImageSource="edit"
@@ -63,7 +63,7 @@
                                        >
                                 <Grid ColumnDefinitions="9,*">
                                     <VerticalStackLayout Grid.Column="0"
-                                         BackgroundColor="Red">
+                                         BackgroundColor="{Binding ChangeColor}">
 
                                     </VerticalStackLayout>
                                     <VerticalStackLayout Grid.Column="1"
@@ -72,7 +72,7 @@
                                                          >
                                         <Label Text="{Binding Name}"
                                                    FontAttributes="Bold"/>
-                                        <HorizontalStackLayout>
+                                        <HorizontalStackLayout Spacing="10">
                                             <Image Source="clock"
                                                        HeightRequest="10"
                                                        WidthRequest="10"/>
@@ -87,7 +87,10 @@
                 </DataTemplate>
 
             </CollectionView.ItemTemplate>
+
         </CollectionView>
+
+
         <ImageButton BackgroundColor="Transparent"
                    HorizontalOptions="End"
                    VerticalOptions="EndAndExpand"
@@ -96,8 +99,9 @@
                    WidthRequest="60"
                    Source="add"
                    Command="{Binding AddButton}" />
-    </StackLayout>
 
+    </Grid>
+  
 
 </ContentPage>
 
