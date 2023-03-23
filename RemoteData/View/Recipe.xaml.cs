@@ -10,9 +10,7 @@ public partial class Recipe : ContentPage
 
 		InitializeComponent();
 		GetInstance();
-		_=GetRecipeList();
-
-		
+		_=GetRecipeList();	
 	}
 
 	private void GetInstance()

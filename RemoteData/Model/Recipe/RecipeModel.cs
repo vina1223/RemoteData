@@ -35,7 +35,6 @@ namespace RemoteData.Model.Recipe
                         var data = await response.Content.ReadAsStringAsync();
                         var recipe = JsonConvert.DeserializeObject<HttpRecipeModel>(data);
                         Details = recipe.RecipeNewDetails;
-                       
                         return new MyResult()
                         {
                             IsSucess = true,
@@ -48,8 +47,6 @@ namespace RemoteData.Model.Recipe
                             IsSucess = false,
                             Message = "Something Went Wrong",
                         };
-                    
-                     
                     }
                 }
                 else
@@ -62,11 +59,6 @@ namespace RemoteData.Model.Recipe
                     };
                     
                 }
-            }
-
-        
-
-        
-        
+            } 
     }
 }

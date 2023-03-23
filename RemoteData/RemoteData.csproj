@@ -49,11 +49,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="HTTPModel\Quotes\qbvq2ybt.wih~" />
 	  <None Remove="Model\ActivityList\flfwiswt.h0f~" />
+	  <None Remove="Model\Quotes\cpel4vi2.lq3~" />
+	  <None Remove="Model\ShoppingList\vayamez3.3lv~" />
+	  <None Remove="Resources\Fonts\Overpass.ttf" />
+	  <None Remove="Resources\Fonts\Roboto.ttf" />
 	  <None Remove="Resources\Images\Add.png" />
+	  <None Remove="Resources\Images\bag.svg" />
 	  <None Remove="Resources\Images\clock.png" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\search.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -74,7 +81,19 @@
 	  <MauiXaml Update="View\ActivityListView\UpdateActivityListView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\Quotes\QuotesMainView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Quotes\QuotesView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Quotes\RandomQuotesView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Recipe.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ShoppingList\ShoppingListView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\WhatsappTabbedPage\ContactPage.xaml">

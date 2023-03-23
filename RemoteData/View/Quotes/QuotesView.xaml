@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteData.View.Quotes.QuotesView"
+             xmlns:ViewModel="clr-namespace:RemoteData.ViewModel.Quotes"
+             Title="QuotesView">
+
+    <ContentPage.BindingContext>
+        <ViewModel:QotesViewModel></ViewModel:QotesViewModel>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush 
+                StartPoint="0,0"
+                EndPoint="0,1">
+                <GradientStop Color="White"
+                              Offset="0.1"/>
+                <GradientStop Color="MediumPurple"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+   
+    
+    <CollectionView ItemsSource="{Binding QuotesList}">
+       
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                    <Frame Margin="10,10,10,15"
+                           Padding="0"
+                           CornerRadius="20"
+                           >
+                    <Grid RowDefinitions="Auto,*">
+                        <VerticalStackLayout  Grid.Row="0"
+                                              BackgroundColor="LightGray"
+                                              >
+                            <Label Text="{Binding AutherName}"
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               TextColor="Purple"
+                               Margin="10"
+                                HorizontalOptions="Center"   
+                               />
+                        </VerticalStackLayout>
+                      
+
+                        <Label Text="{Binding AuthorQuotes}"
+                               Grid.Row="1"
+                               HorizontalOptions="CenterAndExpand"
+                               Margin="20"
+                               FontSize="17"
+                               FontAttributes="Bold"
+                               />
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteData.View.ShoppingList.ShoppingListView"
+             xmlns:ViewModel ="clr-namespace:RemoteData.ViewModel.ShoppingList"
+             Title="ShoppingListView">
+
+    <ContentPage.BindingContext>
+        <ViewModel:ShoppingListViewModel></ViewModel:ShoppingListViewModel>
+    </ContentPage.BindingContext>
+    
+    
+    <ScrollView>
+        <StackLayout>
+            <Grid ColumnDefinitions="*,*,*"
+                  Margin="7"
+                  >
+                <Image Source="search" 
+                       HeightRequest="20" 
+                       WidthRequest="20"
+                       Grid.Column="0"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       Margin="20,0"
+                       />
+                <Label Text="SHOP" 
+                       FontSize=" 20" 
+                       FontAttributes="Bold"
+                       Grid.Column="1"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       FontFamily="Roboto"
+                       />
+                <Image Source="bag" 
+                       HeightRequest="25" 
+                       WidthRequest="25"
+                       Grid.Column="2"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center"
+                       Margin="20,0"
+                       />
+            </Grid>
+
+            <CollectionView ItemsLayout="HorizontalList"
+                            ItemsSource="{Binding MyShoppingDetails}"
+                            SelectedItem="{Binding SelectedCategory}"
+                            SelectionChangedCommand="{Binding ClickCommand}"
+                            SelectionMode="Single"
+                            Margin="0,20">
+  
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                        <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="CommonStates">
+                        <VisualState Name="Normal"/>
+                        <VisualState Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="Border.BackgroundColor"
+                                        TargetName="Border"
+                                        Value="#D2FF70"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
+                            <Border Margin="10"
+                                Padding="25,10"
+                                Stroke="#EFEDED"
+                                StrokeShape="RoundRectangle 10,10"
+                                x:Name="Border">
+                                <Label Text="{Binding}"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   />
+                        </Border>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <CollectionView ItemsSource="{Binding ProductList}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     VerticalItemSpacing="20"
+                                     HorizontalItemSpacing="20"
+                                     >
+                        
+                    </GridItemsLayout>
+                </CollectionView.ItemsLayout>
+                
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="*,Auto,Auto"
+                              RowSpacing="10"
+                              >
+                            <Frame Padding="0" 
+                                   Grid.Column="0"
+                                   >
+                                <Image Source="{Binding ProductImage}"/>
+                            </Frame>
+                            <Label Text="{Binding ProductTitle}"
+                                   Grid.Column="1"
+                                   TextColor="Gray"
+                                   FontAttributes="Bold"
+                                   FontSize="20"/>
+                            <Label Text="{Binding ProductPrice , StringFormat='$ {0:d}'}"
+                                   Grid.Column="2"
+                                   TextColor="Black"
+                                   FontAttributes="Bold"
+                                   FontSize="20"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+ 
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

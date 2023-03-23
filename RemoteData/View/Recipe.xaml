@@ -26,6 +26,7 @@
         <StackLayout Margin="15">
             <ActivityIndicator Color="Blue"
                                IsRunning="{Binding Activity}"
+                               IsVisible="{Binding Activity}"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                />
@@ -47,7 +48,7 @@
                                   >
                                 <Frame Grid.Row="0"
                                        BackgroundColor="SkyBlue"
-                                       HeightRequest="10"
+                                       
                                        Padding="10" >
                                     <Image Source="{Binding Image_url}"/>
                                 </Frame>

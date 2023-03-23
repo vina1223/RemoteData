@@ -3,22 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RemoteData.View.WhatsappTabbedPage.WhatsAppTabPage"
             xmlns:page="clr-namespace:RemoteData.View.WhatsappTabbedPage"
+            xmlns:ViewModel="clr-namespace:RemoteData.ViewModel.WhatsAppViewModel"
             BarBackgroundColor="#075E55"
             SelectedTabColor="White"
             UnselectedTabColor="#93BDB8"
             NavigationPage.HasNavigationBar="True"
             Title="WhatsApp">
-
+    
     <NavigationPage.TitleView>
 
-        <Label Text="WhatsApp"
+        <HorizontalStackLayout BackgroundColor="#075E55">
+            <Label Text="WhatsApp"
                TextColor="White"
                FontSize="20"
                FontAttributes="Bold"
                VerticalOptions="Center"
                />
+        </HorizontalStackLayout>
+       
     </NavigationPage.TitleView>
+
     
+
     <page:MainPage
         Title="Calls"
        />
