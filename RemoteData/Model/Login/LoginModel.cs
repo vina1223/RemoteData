@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RemoteData.Model.Login
 {
-    internal class LoginModel
+    public class LoginModel
     {
+        
     }
 }
