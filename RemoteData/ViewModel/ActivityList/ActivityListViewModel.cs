@@ -15,6 +15,18 @@ namespace RemoteData.ViewModel.ActivityList
         private ObservableCollection<ActivityDetails> _Activitydetails;
         private ActivityListModel _ActivityModel;
         private ActivityDetails activity;
+        private bool _changeBack;
+
+        public bool ChangeBack
+        {
+            get { return _changeBack;}
+            set
+            {
+                _changeBack = value;
+                
+                OnPropertyChnaged();
+            }
+        }
       
 
         public ObservableCollection<ActivityDetails> ActivityDetails
@@ -61,7 +73,8 @@ namespace RemoteData.ViewModel.ActivityList
             AddButton = new Command(Add);
             EditButton = new Command(Update);           
             _deleteActivityModel = new DeleteActivityModel();
-            DeleteCommand = new Command(() => { _ = DeleteDetailsAsync(); });            
+            DeleteCommand = new Command(() => { _ = DeleteDetailsAsync(); });
+            BackgroundColorChange();
         }
 
         public void Add()
@@ -76,7 +89,8 @@ namespace RemoteData.ViewModel.ActivityList
        
         public void BackgroundColorChange()
         {
-            if (activity.Complete == true)
+            ChangeBack = activity.Complete;
+            if (ChangeBack == true)
             {
                 ChangeColor = Colors.Green;
             }
@@ -118,6 +132,7 @@ namespace RemoteData.ViewModel.ActivityList
             Activity = true;
             var result = await _ActivityModel.GetActivityDetailsAsync();
             ActivityDetails = _ActivityModel.DetailsActivity.ToObservableCollection();
+            
             getEventHandler?.Invoke(this, result);
             Activity = false;
         }

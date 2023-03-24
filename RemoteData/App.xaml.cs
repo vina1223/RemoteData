@@ -1,5 +1,7 @@
 ﻿using RemoteData.View;
 using RemoteData.View.ActivityListView;
+using RemoteData.View.Employee;
+using RemoteData.View.Login;
 using RemoteData.View.Quotes;
 using RemoteData.View.ShoppingList;
 using RemoteData.View.WhatsappTabbedPage;
@@ -14,7 +16,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage =new NavigationPage( new QuotesMainView());
+		MainPage =new AddEmployeeView();
 
 	}
 }

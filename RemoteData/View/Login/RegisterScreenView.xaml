@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteData.View.Login.RegisterScreenView"
+             Title="RegisterScreenView">
+    <ScrollView>
+        <StackLayout Spacing="10">
+            <Frame WidthRequest="100"
+               HeightRequest="50"
+               HorizontalOptions="Start"
+               CornerRadius="0" 
+               BorderColor="SkyBlue"
+               BackgroundColor="SkyBlue"
+               Margin="0,15"
+                >
+                <Image Source="backarrow"
+                   HeightRequest="40"
+                   WidthRequest="40"/>
+            </Frame>
+            <Grid ColumnDefinitions="*,Auto"
+              RowDefinitions="Auto,*,*,*,*,*,*"
+              RowSpacing="20"
+              Margin="20"
+              >
+                <Label Text="Hello &#10;Signup to &#10;get started"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   FontAttributes="Bold"
+                   FontSize="30"
+                   TextColor="DarkBlue"   
+                   />
+                <Frame Grid.Column="0"
+                       Grid.Row="1"
+                       HeightRequest="70"
+                       WidthRequest="70"
+                       HorizontalOptions="Start">
+                    
+                </Frame>
+
+                <Border Grid.Column="0"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    StrokeShape="RoundRectangle 10,10"
+                    HeightRequest="50"
+                    
+                    Stroke="white">
+                    <Border.Shadow>
+                        <Shadow Brush="Gray"
+                            Offset="10,10"
+                            Radius="10"
+                            Opacity="0.2"/>
+                    </Border.Shadow>
+
+                    <Entry Placeholder="Name"
+                       FontAttributes="Bold"
+                       Margin="15,0"
+                       />
+                </Border>
+                <Border Grid.Column="0"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    StrokeShape="RoundRectangle 10,10"
+                    HeightRequest="50"
+                    Stroke="white"
+                    >
+                    <Border.Shadow>
+                        <Shadow Brush="gray"
+                            Offset="10,10"
+                            Radius="10"
+                            Opacity="0.2"/>
+                    </Border.Shadow>
+
+                    <Entry Placeholder="Email Address"
+                       FontAttributes="Bold"
+                       Margin="15,0"
+                       />
+                </Border>
+
+                <Border Grid.Column="0"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    StrokeShape="RoundRectangle 10,10"
+                    HeightRequest="50"
+                    Stroke="white"
+                    >
+                    <Border.Shadow>
+                        <Shadow Brush="gray"
+                            Offset="10,10"
+                            Radius="10"
+                            Opacity="0.2"/>
+                    </Border.Shadow>
+
+                    <Entry Placeholder="Password"
+                       FontAttributes="Bold"
+                       Margin="15,0"
+                       />
+                </Border>
+
+                <Button Grid.Column="0"
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Text="Signup"
+                    BackgroundColor="DarkBlue"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    />
+                <HorizontalStackLayout  
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    Spacing="10"
+                    >
+                    <Label Text="Forget Your Password?"
+                   
+                    HorizontalOptions="Start"
+                       FontAttributes="Bold"
+                       />
+                    <Label Text="SignUp"
+                    
+                    HorizontalOptions="Start"
+                       FontAttributes="Bold"
+                    />
+                </HorizontalStackLayout>
+
+               
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

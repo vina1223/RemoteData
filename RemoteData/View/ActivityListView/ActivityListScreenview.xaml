@@ -64,7 +64,7 @@
                                 <Grid ColumnDefinitions="9,*">
                                     <VerticalStackLayout Grid.Column="0"
                                          BackgroundColor="{Binding ChangeColor}">
-
+                                        
                                     </VerticalStackLayout>
                                     <VerticalStackLayout Grid.Column="1"
                                                          Padding="13"

@@ -56,6 +56,7 @@
 	  <None Remove="Resources\Fonts\Overpass.ttf" />
 	  <None Remove="Resources\Fonts\Roboto.ttf" />
 	  <None Remove="Resources\Images\Add.png" />
+	  <None Remove="Resources\Images\backarrow.svg" />
 	  <None Remove="Resources\Images\bag.svg" />
 	  <None Remove="Resources\Images\clock.png" />
 	  <None Remove="Resources\Images\delete.png" />
@@ -79,6 +80,21 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ActivityListView\UpdateActivityListView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Employee\AddEmployeeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Employee\EditEmployeeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Employee\EmployeeListView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Login\loginScreenView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Login\RegisterScreenView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Quotes\QuotesMainView.xaml">

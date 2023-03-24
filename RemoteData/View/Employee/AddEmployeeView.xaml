@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteData.View.Employee.AddEmployeeView"
+             BackgroundColor="LightGray"
+             Title="AddEmployeeView">
+    <ScrollView>
+        <StackLayout VerticalOptions="Center"
+                     BackgroundColor="LightGray"
+                     Margin="20"
+                     >
+            <Grid RowDefinitions="*,Auto"
+                  RowSpacing="-100">
+
+                <Frame CornerRadius="20"
+                   Grid.Row="1"
+                   HeightRequest="380"    
+                   >
+
+                    <StackLayout VerticalOptions="End"
+                                 Spacing="15" >
+
+
+                        <Entry Placeholder="First Name"/>
+                        <Entry Placeholder="Last Name"/>
+                        <Entry Placeholder="Email"/>
+
+                        <Button Text="Add"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BackgroundColor="DarkCyan"
+                        CornerRadius="20"
+                        HeightRequest="50"
+                        />
+
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="100"
+                        Padding="0"
+                       HeightRequest="200"
+                       WidthRequest='200'
+                       Margin="0,10"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"
+                       >
+                    <Image Source="dotnet_bot"/>
+
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

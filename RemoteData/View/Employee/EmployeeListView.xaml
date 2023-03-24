@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RemoteData.View.Employee.EmployeeListView"
+             Title="EmployeeListView"
+             BackgroundColor="LightGray"
+             >
+    <Grid>
+        <CollectionView>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                           IconImageSource="delete"
+                                           BackgroundColor="Red"
+                                           />
+
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                           IconImageSource="delete"
+                                           BackgroundColor="Red"
+                                           />
+
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                        <StackLayout>
+                            <Frame>
+                                <Grid RowDefinitions="*,*"
+                                  ColumnDefinitions="*,*"
+                                  ColumnSpacing="20"
+                                  >
+
+                                    <Frame Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2"
+                                       CornerRadius="40"
+                                       HeightRequest="50"
+                                       WidthRequest="50"
+                                       >
+                                        <Image Source="dotnet_bot"/>
+                                    </Frame>
+
+                                    <Label Text="Name"
+                                       Grid.Column="1"
+                                       Grid.Row="0"/>
+                                    <Label Text="Description"
+                                       Grid.Column="1"
+                                       Grid.Row="1"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </SwipeView>
+                </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+        <ImageButton Source="add"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="End"
+                     VerticalOptions="End"
+                     Margin="10"
+                     />
+
+    </Grid>
+</ContentPage>
